@@ -4,8 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import java.io.File;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * Description:
@@ -17,8 +15,6 @@ import java.util.concurrent.Executors;
  */
 public class LoggerTool {
 
-    private final static ExecutorService logService = Executors.newSingleThreadExecutor();
-
     public static void dailyLog(Context context, String dir, String log) {
         String path = context.getExternalFilesDir(null).getAbsolutePath();
         if (!TextUtils.isEmpty(dir)) {
@@ -28,7 +24,7 @@ public class LoggerTool {
     }
 
     public static void dailyLog(String path, String content) {
-        logService.execute(() -> FileIOTool.appendFile(path, getDailyLogFilename(), content));
+        FileIOTool.appendFile(path, getDailyLogFilename(), content);
     }
 
     private static String getDailyLogFilename() {
