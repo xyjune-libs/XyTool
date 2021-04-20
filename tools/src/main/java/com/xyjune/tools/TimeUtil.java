@@ -17,7 +17,8 @@ public class TimeUtil {
 
     public final static String FORMAT_DEFAULT_DATE = "yyyy-MM-dd HH:mm:ss";
     public final static String FORMAT_MILLIS_DATE = "yyyy-MM-dd HH:mm:ss:SSS";
-    public final static String FORMAT_FILENAME_DATE = "yyyy_MM_dd_HH_mm_ss";
+    public final static String FORMAT_FILENAME_DATETIME = "yyyyMMddHHmmss";
+    public final static String FORMAT_FILENAME_DATE = "yyyy-MM-dd";
 
     /**
      * 获取当前时间戳
@@ -49,6 +50,10 @@ public class TimeUtil {
 
     public static Date getCurrentDate() {
         return new Date();
+    }
+
+    public static String getCurrentDateString(String pattern) {
+        return format(getCurrentDate(), pattern);
     }
 
     public static Date getDateOfTimestamps(long timestamps) {

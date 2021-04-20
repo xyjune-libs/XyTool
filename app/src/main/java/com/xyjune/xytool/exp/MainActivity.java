@@ -6,6 +6,7 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.xyjune.tools.GsonTool;
+import com.xyjune.tools.LoggerTool;
 import com.xyjune.tools.TimeUtil;
 
 import java.util.Date;
@@ -22,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
         KV kv = new KV();
         kv.setA("sakldjnlaksd");
         kv.setDate(TimeUtil.getCurrentDate());
+
+        for (int i = 0; i < 10; i++) {
+            LoggerTool.dailyLog(this, "", "kjahsikfhkashnkfj");
+        }
 
         Log.d(TAG, "onCreate: " + GsonTool.toJson(kv, GsonTool.GSON_LOGGER));
     }
